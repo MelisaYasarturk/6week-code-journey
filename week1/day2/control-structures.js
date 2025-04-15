@@ -95,3 +95,17 @@ switch (gun) {
     console.log("Diğer gün");
     break;
 }
+
+// DİZİ (Array) ve forEach Kullanımı
+let meyveler = ["Elma", "Armut", "Muz", "Çilek", "Kiraz"];
+
+meyveler.forEach(function(meyve, index) {
+  console.log("Meyve " + (index + 1) + ": " + meyve);
+});
+
+// TERNARY OPERATOR ÖRNEĞİ
+let sicaklik2 = 15;
+
+// Ternary operator (koşullu ifade)
+let havaDurumu = (sicaklik2 > 20) ? "Hava sıcak" : "Hava soğuk";
+console.log(havaDurumu);  // "Hava soğuk" yazdırır çünkü sicaklik2 20'den küçük
