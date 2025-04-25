@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Örneği</title>
+</head>
+<body>
+  <h1 id="baslik">Merhaba DOM!</h1>
+  <p class="paragraf">Bu bir paragraf.</p>
+  <button id="renkDegistir">Rengi Değiştir</button>
+  <ul id="liste">
+    <li>Öğe 1</li>
+    <li>Öğe 2</li>
+  </ul>
+
+  <script>
+    // DOM: HTML sayfasının JavaScript ile kontrol edilebilmesini sağlayan yapıdır.
+
+    // 1. Bir elementi ID'sine göre seçme:
+    const baslik = document.getElementById("baslik");
+    // Yukarıdaki kod, id'si "baslik" olan <h1> elementini seçer.
+
+    // 2. Bir elementi class adına göre seçme:
+    const paragraf = document.querySelector(".paragraf");
+    // querySelector(), CSS seçici gibi çalışır. İlk eşleşeni döner.
+
+    // 3. Birden fazla elementi class ile seçme:
+    const tumParagraflar = document.querySelectorAll(".paragraf");
+    // querySelectorAll(), eşleşen tüm elementleri bir NodeList içinde döner.
+
+    // 4. Bir elementi tag adına göre seçme:
+    const listeElemanlari = document.getElementsByTagName("li");
+    // Tüm <li> etiketlerini döner. Bu bir HTMLCollection'dır.
+
+    // 5. Elementin içeriğini değiştirme:
+    baslik.textContent = "DOM'a Giriş!";
+    // <h1> içindeki yazıyı değiştirdik.
+
+    // 6. Elementin stilini değiştirme:
+    paragraf.style.color = "blue";
+    // <p> yazısını mavi yaptık.
+
+    // 7. Olay (event) ekleme - Tıklama olayı:
+    const buton = document.getElementById("renkDegistir");
+    buton.addEventListener("click", function () {
+      // Tıklanınca başlığın rengini kırmızı yap
+      baslik.style.color = "red";
+    });
+
+    // 8. Yeni bir element oluşturma ve DOM'a ekleme:
+    const yeniOge = document.createElement("li"); // yeni <li> oluştur
+    yeniOge.textContent = "Öğe 3"; // içeriğini belirle
+    document.getElementById("liste").appendChild(yeniOge); // listeye ekle
+
+    // 9. Var olan bir elementi silme:
+    const silinecekOge = listeElemanlari[0]; // ilk <li> öğesini seç
+    silinecekOge.remove(); // sil
+
+    // 10. Attribute (özellik) ekleme:
+    paragraf.setAttribute("title", "Bu bir paragraftır");
+    // Paragrafa "title" özelliği eklenir (üzerine gelince görünür)
+  </script>
+</body>
+</html>
