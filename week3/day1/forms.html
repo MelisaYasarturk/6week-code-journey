@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Örneği</title>
+</head>
+<body>
+
+  <!-- Basit bir form oluşturuyoruz -->
+  <form id="kayitFormu">
+    <!-- İsim girişi için bir input -->
+    <label for="isim">İsim:</label>
+    <input type="text" id="isim" name="isim" required> 
+    <br><br>
+
+    <!-- E-posta girişi için bir input -->
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required> 
+    <br><br>
+
+    <!-- Şifre girişi için bir input -->
+    <label for="sifre">Şifre:</label>
+    <input type="password" id="sifre" name="sifre" required> 
+    <br><br>
+
+    <!-- Gönder butonu -->
+    <button type="submit">Gönder</button>
+  </form>
+
+  <p id="sonuc"></p> <!-- Form sonucunu göstereceğimiz boş bir paragraf -->
+
+  <script>
+    // 1. Formu ve sonucun gösterileceği paragrafı seçiyoruz
+    const form = document.getElementById("kayitFormu");
+    const sonucParagraf = document.getElementById("sonuc");
+
+    // 2. Form gönderildiğinde çalışacak bir olay tanımlıyoruz
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // Formun sayfayı yenilemesini engelliyoruz
+
+      // 3. Inputlardan girilen verileri alıyoruz
+      const isim = document.getElementById("isim").value;
+      const email = document.getElementById("email").value;
+      const sifre = document.getElementById("sifre").value;
+
+      // 4. Basit bir kontrol yapabiliriz (isteğe bağlı)
+      if (isim === "" || email === "" || sifre === "") {
+        sonucParagraf.textContent = "Lütfen tüm alanları doldurun.";
+        sonucParagraf.style.color = "red";
+      } else {
+        // 5. Bilgileri kullanıcıya gösteriyoruz
+        sonucParagraf.textContent = `Hoş geldin, ${isim}! Email adresin: ${email}`;
+        sonucParagraf.style.color = "green";
+
+        // 6. (İsteğe bağlı) Formu sıfırlamak istersek:
+        form.reset();
+      }
+    });
+  </script>
+
+</body>
+</html>
