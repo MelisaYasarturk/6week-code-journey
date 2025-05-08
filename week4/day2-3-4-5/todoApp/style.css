@@ -1,5 +1,5 @@
 body{
-  background: #CB6363;
+  background: #314174;
 }
 ::placeholder {
   color: #fff !important; 
@@ -16,8 +16,11 @@ input[type=text]:focus{
 
 }
 .todos li{
-  background: #D87E7E;
+  background: #4b5c94;
 }
 .delete{
   cursor: pointer;
+}
+.filtered{
+    display: none !important;
 }
